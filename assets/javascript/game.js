@@ -7,7 +7,8 @@ function Fighter(name, image, vitality, attack, counter) {
 }
 
 $(document).ready(function() {
-  console.log("jQuery is ready!")
+
+  // Creates Characters, places in an array, renders to DOM
 
   var p1Ryu    = new Fighter("ryu", "assets/images/ryu.jpg", 100, 10, 10);
   var p1ChunLi = new Fighter("chun-li", "assets/images/chun-li.jpg", 100, 10, 10);
@@ -24,9 +25,9 @@ $(document).ready(function() {
 
   }
 
-  console.log(newRoster)
-
   $('.fighters').append(newRoster);
+
+  // Handles larger portrait behaviors when user hovers over a fighter's picture
 
   $("#roster .row .col-md-3 #ryu").on("mouseover", function() {
     var $myImg = $("#roster .row .col-md-3 #ryu").clone();
@@ -48,7 +49,44 @@ $(document).ready(function() {
     $("#playerImage").html($myImg);
   })
 
+  $("#roster .row .col-md-3 #ryu").click(function() {
+    $("#roster .row .col-md-3 #ryu").animate({
+      bottom: "-=260"
+    }, 100, function(){
+    });
+  });
 
+  $("#roster .row .col-md-3 #chun-li").click(function() {
+    $("#roster .row .col-md-3 #chun-li")
+    .animate({
+      bottom: "-=260"
+    }, 100)
+    .animate({
+      left: "-=141"
+    }, 100, function(){
+    });
+  });
+  
+  $("#roster .row .col-md-3 #guile").click(function() {
+    $("#roster .row .col-md-3 #guile")
+    .animate({
+      bottom: "-=260"
+    }, 100)
+    .animate({
+      left: "-=285"
+    }, 100, function(){
+    });
+  });
 
+  $("#roster .row .col-md-3 #ken").click(function() {
+    $("#roster .row .col-md-3 #ken")
+    .animate({
+      bottom: "-=260"
+    }, 100)
+    .animate({
+      left: "-=430"
+    }, 100, function(){
+    });
+  });
 
 });
