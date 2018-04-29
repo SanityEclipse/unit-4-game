@@ -4,7 +4,7 @@
 
   <head>
     <meta charset="utf-8">
-    <title>Street Fighter RPG Battle</title>
+    <title>Street Fighter Battler</title>
     <link href="assets/css/reset.css" rel="stylesheet" type="text/css" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
@@ -12,10 +12,10 @@
 
   <body>
 
+    <!--Header-->
 
-
-    <header class="navbar justify-content-center">
-        <h3>Street Fighter RPG</h3>
+    <header class="navbar navbar-dark bg-dark justify-content-center">
+        <h3>Street Fighter Battler</h3>
     </header>
 
 
@@ -24,29 +24,23 @@
 
       <div class ="row">
 
-        <div class="col-md-3">
+        <!-- 1UP Image -->
+
+        <div id="playerImage" class="col-md-3">
           <img class=".img-fluid" src="http://via.placeholder.com/250x250" />
         </div>
 
-        <div class="col-md-6">
-          <div class="row">
-            <div class="col-md-3">
-              <img class=".img-fluid" src="assets/images/ryu.jpg" />
-            </div>
-            <div class="col-md-3">
-              <img class=".img-fluid" src="assets/images/guile.jpg" />
-            </div>
-            <div class="col-md-3">
-              <img class=".img-fluid" src="assets/images/ken.jpg" />
-            </div>
-            <div class="col-md-3">
-              <img class=".img-fluid" src="assets/images/chun-li.jpg" />
-            </div>
-          </div>
+        <!-- Character Select -->
 
+        <div id="roster" class="col-md-6">
+          <div class="row fighters">
+            <!-- Fighters will render here -->
+          </div>
         </div>
 
-        <div class="col-md-3 justify-content-end">
+        <!-- COM Image -->
+
+        <div id="cpuImage" class="col-md-3 justify-content-end">
           <img class=".img-fluid" src="http://via.placeholder.com/250x250" />
         </div>
 
@@ -54,7 +48,11 @@
 
     </div>
 
-    <footer></footer>
+    <!-- Footer -->
+
+    <footer class="navbar fixed-bottom navbar-dark bg-dark justify-content-center">
+      <a class="navbar-brand" href="#">Copyright 2018</a>
+    </footer>
 
 
   <!-- JavaScript Libraries -->
