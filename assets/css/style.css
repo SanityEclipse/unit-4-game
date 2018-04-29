@@ -1,3 +1,8 @@
+body {
+  background-image: url(../images/japan-bg-img.jpg);
+
+}
+
 header {
   margin-bottom:25px;
   color: white;
@@ -31,8 +36,11 @@ img {
 
 }
 
-
-body {
-  background-image: url(../images/japan-bg-img.jpg);
-
+.flipped {
+  transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -khtml-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
 }

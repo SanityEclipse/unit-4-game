@@ -8,7 +8,8 @@ function Fighter(name, image, vitality, attack, counter) {
 
 $(document).ready(function() {
 
-  var playerHasPicked = false;
+  var playerHasPicked   = false;
+  var opponentHasPicked = false;
 
   // Creates Characters, places in an array, renders to DOM
 
@@ -32,30 +33,46 @@ $(document).ready(function() {
   // Handles larger portrait behaviors when user hovers over a fighter's picture
 
   $("#roster .row .col-md-3 #ryu").on("mouseover", function() {
-    if(playerHasPicked == false) {
+    if(playerHasPicked === false) {
       var $myImg = $("#roster .row .col-md-3 #ryu").clone();
       $("#playerImage").html($myImg);
+    }
+    if(playerHasPicked === true && opponentHasPicked === false) {
+      var $cpuImg = $("#roster .row .col-md-3 #ryu").clone();
+      $("#cpuImage").html($cpuImg).addClass('flipped');
     }
   })
 
   $("#roster .row .col-md-3 #chun-li").on("mouseover", function() {
-    if(playerHasPicked == false) {
+    if(playerHasPicked === false) {
       var $myImg = $("#roster .row .col-md-3 #chun-li").clone();
       $("#playerImage").html($myImg);
+    }
+    if(playerHasPicked === true && opponentHasPicked === false) {
+      var $cpuImg = $("#roster .row .col-md-3 #chun-li").clone();
+      $("#cpuImage").html($cpuImg).addClass('flipped');
     }
   })
 
   $("#roster .row .col-md-3 #guile").on("mouseover", function() {
-    if(playerHasPicked == false) {
+    if(playerHasPicked === false) {
       var $myImg = $("#roster .row .col-md-3 #guile").clone();
       $("#playerImage").html($myImg);
+    }
+    if(playerHasPicked === true && opponentHasPicked === false) {
+      var $cpuImg = $("#roster .row .col-md-3 #guile").clone();
+      $("#cpuImage").html($cpuImg).addClass('flipped');
     }
   })
 
   $("#roster .row .col-md-3 #ken").on("mouseover", function() {
-    if(playerHasPicked == false) {
+    if(playerHasPicked === false) {
       var $myImg = $("#roster .row .col-md-3 #ken").clone();
       $("#playerImage").html($myImg);
+    }
+    if(playerHasPicked === true && opponentHasPicked === false) {
+      var $cpuImg = $("#roster .row .col-md-3 #ken").clone();
+      $("#cpuImage").html($cpuImg).addClass('flipped');
     }
   })
 
