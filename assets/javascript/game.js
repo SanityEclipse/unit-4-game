@@ -79,10 +79,20 @@ $(document).ready(function() {
   // PLAYER ANIMATION
 
   $("#roster .row .col-md-3 #ryu").click(function() {
-    if(playerHasPicked == false) {
+    if(playerHasPicked === false) {
       playerHasPicked = true;
       $("#roster .row .col-md-3 #ryu").animate({
         bottom: "-=260"
+      }, 100, function(){
+      });
+    }
+    else if(playerHasPicked === true && opponentHasPicked === false) {
+      opponentHasPicked = true;
+      $("#roster .row .col-md-3 #ryu").animate({
+        bottom: "-=260"
+      }, 100)
+      .animate({
+        right: "-=430"
       }, 100, function(){
       });
     }
@@ -100,6 +110,16 @@ $(document).ready(function() {
       }, 100, function(){
       });
     }
+    else if(playerHasPicked === true && opponentHasPicked === false){
+      opponentHasPicked = true;
+      $("#roster .row .col-md-3 #chun-li").animate({
+        bottom: "-=260"
+      }, 100)
+      .animate({
+        right:"-=290"
+      }, 100, function(){
+      });
+    }
   });
 
   $("#roster .row .col-md-3 #guile").click(function() {
@@ -114,6 +134,16 @@ $(document).ready(function() {
       }, 100, function(){
       });
     }
+    else if(playerHasPicked === true && opponentHasPicked === false) {
+      opponentHasPicked = true;
+      $("#roster .row .col-md-3 #guile").animate({
+        bottom: "-=260"
+      }, 100)
+      .animate({
+        right:"-=140px"
+      }, 100, function(){
+      });
+    }
   });
 
   $("#roster .row .col-md-3 #ken").click(function() {
@@ -121,6 +151,16 @@ $(document).ready(function() {
       playerHasPicked = true;
       $("#roster .row .col-md-3 #ken")
       .animate({
+        bottom: "-=260"
+      }, 100)
+      .animate({
+        left: "-=430"
+      }, 100, function(){
+      });
+    }
+    else if(playerHasPicked === true && opponentHasPicked === false){
+      opponentHasPicked = true;
+      $("#roster .row .col-md-3 #ken").animate({
         bottom: "-=260"
       }, 100, function(){
       });
