@@ -41,7 +41,7 @@ $(document).ready(function() {
       var $cpuImg = $("#roster .row .col-md-3 #ryu").clone();
       $("#cpuImage").html($cpuImg).addClass('flipped');
     }
-  })
+  });
 
   $("#roster .row .col-md-3 #chun-li").on("mouseover", function() {
     if(playerHasPicked === false) {
@@ -52,7 +52,7 @@ $(document).ready(function() {
       var $cpuImg = $("#roster .row .col-md-3 #chun-li").clone();
       $("#cpuImage").html($cpuImg).addClass('flipped');
     }
-  })
+  });
 
   $("#roster .row .col-md-3 #guile").on("mouseover", function() {
     if(playerHasPicked === false) {
@@ -63,7 +63,7 @@ $(document).ready(function() {
       var $cpuImg = $("#roster .row .col-md-3 #guile").clone();
       $("#cpuImage").html($cpuImg).addClass('flipped');
     }
-  })
+  });
 
   $("#roster .row .col-md-3 #ken").on("mouseover", function() {
     if(playerHasPicked === false) {
@@ -74,7 +74,7 @@ $(document).ready(function() {
       var $cpuImg = $("#roster .row .col-md-3 #ken").clone();
       $("#cpuImage").html($cpuImg).addClass('flipped');
     }
-  })
+  });
 
   // PLAYER ANIMATION
 
@@ -117,14 +117,11 @@ $(document).ready(function() {
   });
 
   $("#roster .row .col-md-3 #ken").click(function() {
-    if(playerHasPicked == false) {
+    if(playerHasPicked === false) {
       playerHasPicked = true;
       $("#roster .row .col-md-3 #ken")
       .animate({
         bottom: "-=260"
-      }, 100)
-      .animate({
-        left: "-=430"
       }, 100, function(){
       });
     }

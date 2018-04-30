@@ -9,6 +9,13 @@ header {
 
 }
 
+
+#playerImage, #cpuImage {
+  min-height: 250px;
+  max-height: 250px;
+
+}
+
 img {
   height:100%;
   width:100%;
@@ -36,11 +43,12 @@ img {
 
 }
 
-.flipped {
+/* .flipped {
   transform: scale(-1, 1);
   -moz-transform: scale(-1, 1);
   -webkit-transform: scale(-1, 1);
   -o-transform: scale(-1, 1);
   -khtml-transform: scale(-1, 1);
   -ms-transform: scale(-1, 1);
-}
+
+} */
