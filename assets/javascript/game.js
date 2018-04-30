@@ -76,7 +76,7 @@ $(document).ready(function() {
     }
   });
 
-  // PLAYER ANIMATION
+  // PLAYER SELECT, OPPONENT SELECT, & ANIMATION
 
   $("#roster .row .col-md-3 #ryu").click(function() {
     if(playerHasPicked === false) {
@@ -94,6 +94,7 @@ $(document).ready(function() {
       .animate({
         right: "-=430"
       }, 100, function(){
+        gameLoop();
       });
     }
   });
@@ -118,6 +119,7 @@ $(document).ready(function() {
       .animate({
         right:"-=290"
       }, 100, function(){
+        gameLoop();
       });
     }
   });
@@ -132,6 +134,7 @@ $(document).ready(function() {
       .animate({
         left: "-=285"
       }, 100, function(){
+        gameLoop();
       });
     }
     else if(playerHasPicked === true && opponentHasPicked === false) {
@@ -142,6 +145,7 @@ $(document).ready(function() {
       .animate({
         right:"-=140px"
       }, 100, function(){
+        gameLoop();
       });
     }
   });
@@ -163,8 +167,14 @@ $(document).ready(function() {
       $("#roster .row .col-md-3 #ken").animate({
         bottom: "-=260"
       }, 100, function(){
+        gameLoop();
       });
     }
   });
+
+  function gameLoop() {
+    console.log("Game Loop initiated");
+  }
+
 
 });
