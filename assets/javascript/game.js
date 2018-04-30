@@ -7,7 +7,7 @@ $(document).ready(function() {
     this.attack = attack;
     this.counter = counter;
   }
-
+  var wins = 0;
   var playerHasPicked   = false;
   var opponentHasPicked = false;
   var player1up;
@@ -25,7 +25,7 @@ $(document).ready(function() {
   var newRoster=$()
 
   for(i = 0; i < fighterRoster.length; i++ ) {
-    var createRoster = $("<div class='col-md-3'><img class= '.img-fluid' src=" + fighterRoster[i].image + " id= " + fighterRoster[i].name + " /></div>" )
+    var createRoster = $("<div id="+fighterRoster[i].name+" class='col-md-3'><img class= '.img-fluid' src=" + fighterRoster[i].image + " /><p>"+fighterRoster[i].vitality+"</p></div>" )
     newRoster = newRoster.add(createRoster)
 
   }
@@ -34,56 +34,56 @@ $(document).ready(function() {
 
   // Handles larger portrait behaviors when user hovers over a fighter's picture
 
-  $("#roster .row .col-md-3 #ryu").on("mouseover", function() {
+  $("#roster .row #ryu").on("mouseover", function() {
     if(playerHasPicked === false) {
-      var $myImg = $("#roster .row .col-md-3 #ryu").clone();
+      var $myImg = $("#roster .row #ryu img").clone();
       $("#playerImage").html($myImg);
     }
-    if(playerHasPicked === true && opponentHasPicked === false) {
-      var $cpuImg = $("#roster .row .col-md-3 #ryu").clone();
+    else if(playerHasPicked === true && opponentHasPicked === false) {
+      var $cpuImg = $("#roster .row #ryu img").clone();
       $("#cpuImage").html($cpuImg).addClass('flipped');
     }
   });
 
-  $("#roster .row .col-md-3 #chun-li").on("mouseover", function() {
+  $("#roster .row #chun-li").on("mouseover", function() {
     if(playerHasPicked === false) {
-      var $myImg = $("#roster .row .col-md-3 #chun-li").clone();
+      var $myImg = $("#roster .row #chun-li img").clone();
       $("#playerImage").html($myImg);
     }
     if(playerHasPicked === true && opponentHasPicked === false) {
-      var $cpuImg = $("#roster .row .col-md-3 #chun-li").clone();
+      var $cpuImg = $("#roster .row #chun-li img").clone();
       $("#cpuImage").html($cpuImg).addClass('flipped');
     }
   });
 
-  $("#roster .row .col-md-3 #guile").on("mouseover", function() {
+  $("#roster .row #guile").on("mouseover", function() {
     if(playerHasPicked === false) {
-      var $myImg = $("#roster .row .col-md-3 #guile").clone();
+      var $myImg = $("#roster .row #guile img").clone();
       $("#playerImage").html($myImg);
     }
     if(playerHasPicked === true && opponentHasPicked === false) {
-      var $cpuImg = $("#roster .row .col-md-3 #guile").clone();
+      var $cpuImg = $("#roster .row #guile img").clone();
       $("#cpuImage").html($cpuImg).addClass('flipped');
     }
   });
 
-  $("#roster .row .col-md-3 #ken").on("mouseover", function() {
+  $("#roster .row #ken").on("mouseover", function() {
     if(playerHasPicked === false) {
-      var $myImg = $("#roster .row .col-md-3 #ken").clone();
+      var $myImg = $("#roster .row #ken img").clone();
       $("#playerImage").html($myImg);
     }
     if(playerHasPicked === true && opponentHasPicked === false) {
-      var $cpuImg = $("#roster .row .col-md-3 #ken").clone();
+      var $cpuImg = $("#roster .row #ken img").clone();
       $("#cpuImage").html($cpuImg).addClass('flipped');
     }
   });
 
   // PLAYER SELECT, OPPONENT SELECT, & ANIMATION
 
-  $("#roster .row .col-md-3 #ryu").click(function() {
+  $("#roster .row #ryu").click(function() {
     if(playerHasPicked === false) {
       playerHasPicked = true;
-      $("#roster .row .col-md-3 #ryu").animate({
+      $("#roster .row #ryu").animate({
         bottom: "-=260"
       }, 100, function(){
       });
@@ -91,7 +91,7 @@ $(document).ready(function() {
     }
     else if(playerHasPicked === true && opponentHasPicked === false) {
       opponentHasPicked = true;
-      $("#roster .row .col-md-3 #ryu").animate({
+      $("#roster .row #ryu").animate({
         bottom: "-=260"
       }, 100)
       .animate({
@@ -103,10 +103,10 @@ $(document).ready(function() {
     }
   });
 
-  $("#roster .row .col-md-3 #chun-li").click(function() {
+  $("#roster .row #chun-li").click(function() {
     if(playerHasPicked == false) {
       playerHasPicked = true;
-      $("#roster .row .col-md-3 #chun-li")
+      $("#roster .row #chun-li")
       .animate({
         bottom: "-=260"
       }, 100)
@@ -118,7 +118,7 @@ $(document).ready(function() {
     }
     else if(playerHasPicked === true && opponentHasPicked === false){
       opponentHasPicked = true;
-      $("#roster .row .col-md-3 #chun-li").animate({
+      $("#roster .row #chun-li").animate({
         bottom: "-=260"
       }, 100)
       .animate({
@@ -130,10 +130,10 @@ $(document).ready(function() {
     }
   });
 
-  $("#roster .row .col-md-3 #guile").click(function() {
+  $("#roster .row #guile").click(function() {
     if(playerHasPicked == false) {
       playerHasPicked = true;
-      $("#roster .row .col-md-3 #guile")
+      $("#roster .row #guile")
       .animate({
         bottom: "-=260"
       }, 100)
@@ -145,7 +145,7 @@ $(document).ready(function() {
     }
     else if(playerHasPicked === true && opponentHasPicked === false) {
       opponentHasPicked = true;
-      $("#roster .row .col-md-3 #guile").animate({
+      $("#roster .row #guile").animate({
         bottom: "-=260"
       }, 100)
       .animate({
@@ -158,10 +158,10 @@ $(document).ready(function() {
     }
   });
 
-  $("#roster .row .col-md-3 #ken").click(function() {
+  $("#roster .row #ken").click(function() {
     if(playerHasPicked === false) {
       playerHasPicked = true;
-      $("#roster .row .col-md-3 #ken")
+      $("#roster .row #ken")
       .animate({
         bottom: "-=260"
       }, 100)
@@ -173,7 +173,7 @@ $(document).ready(function() {
     }
     else if(playerHasPicked === true && opponentHasPicked === false){
       opponentHasPicked = true;
-      $("#roster .row .col-md-3 #ken").animate({
+      $("#roster .row #ken").animate({
         bottom: "-=260"
       }, 100, function(){
 
@@ -188,16 +188,34 @@ $(document).ready(function() {
     console.log(player1up)
     console.log(opponent)
 
+
     function fight() {
       opponent.vitality = opponent.vitality - player1up.attack;
       console.log("Opponent vitality: " + opponent.vitality);
       player1up.vitality = player1up.vitality - opponent.counter;
       console.log("Player 1 vitality: " + player1up.vitality);
-      player1up.attack = player1up.attack += 10;
-      console.log("Player 1 attack: " + player1up.attack); 
+      player1up.attack = player1up.attack += 5;
+      console.log("Player 1 attack: " + player1up.attack);
     }
 
-    fight();
+    $("#fightButton").on("click", function() {
+      fight();
+      if(player1up.vitality <= 0){
+        alert("Game Over!")
+      }
+      else if(opponent.vitality <= 0) {
+        alert(opponent.name + " is defeated!")
+        opponentHasPicked = false;
+        opponent = "";
+        wins = wins + 1
+        if(wins < 3) {
+          alert(wins + " Choose next opponent!")
+        }
+        else {
+          alert("you win!")
+        }
+      }
+    })
 
   }
 
