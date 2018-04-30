@@ -99,7 +99,6 @@ $(document).ready(function() {
       }, 100, function(){
       });
       opponent = p1Ryu;
-      gameLoop();
     }
   });
 
@@ -126,7 +125,6 @@ $(document).ready(function() {
       }, 100, function(){
       });
       opponent = p1ChunLi
-      gameLoop();
     }
   });
 
@@ -154,7 +152,6 @@ $(document).ready(function() {
 
       });
       opponent = p1Guile;
-      gameLoop();
     }
   });
 
@@ -179,46 +176,36 @@ $(document).ready(function() {
 
       });
       opponent = p1Ken;
-      gameLoop();
     }
   });
 
-  function gameLoop() {
-    console.log("Game Loop initiated");
-    console.log(player1up)
-    console.log(opponent)
-
-
-    function fight() {
-      opponent.vitality = opponent.vitality - player1up.attack;
-      player1up.vitality = player1up.vitality - opponent.counter;
-      player1up.attack = player1up.attack += 5;
-      $("div #" + player1up.name + " p").html("HP "+ player1up.vitality);
-      $("div #" + opponent.name + " p").html("HP "+ opponent.vitality);
-      $(".card-body").html(player1up.name + " dealt " + player1up.attack + " damage! "+opponent.name + " dealt " + opponent.attack + " damage!")
-    }
-
-    $("#fightButton").on("click", function() {
-      fight();
-      if(player1up.vitality <= 0){
-        alert("Game Over!")
-      }
-      if(opponent.vitality <= 0) {
-        alert(opponent.name + " is defeated!")
-        $("div #" + opponent.name).addClass("defeated");
-        opponentHasPicked = false;
-        opponent="";
-        wins = wins + 1
-        if(wins < 3) {
-          alert(wins + " Choose next opponent!")
-        }
-        else {
-          alert("you win!")
-        }
-      }
-    })
-
+  function fight() {
+    opponent.vitality = opponent.vitality - player1up.attack;
+    player1up.vitality = player1up.vitality - opponent.counter;
+    player1up.attack = player1up.attack += 5;
+    $("div #" + player1up.name + " p").html("HP "+ player1up.vitality);
+    $("div #" + opponent.name + " p").html("HP "+ opponent.vitality);
+    $(".card-body").html(player1up.name + " dealt " + player1up.attack + " damage! "+opponent.name + " dealt " + opponent.attack + " damage!")
   }
 
+  $("#fightButton").on("click", function() {
+    fight();
+    if(player1up.vitality <= 0){
+      alert("Game Over!")
+    }
+    else if(opponent.vitality <= 0) {
+      alert(opponent.name + " is defeated!")
+      $("div #" + opponent.name).addClass("defeated");
+      opponentHasPicked = false;
+      opponent="";
+      wins = wins + 1
+      if(wins < 3) {
+        alert(wins + " Choose next opponent!")
+      }
+      else {
+        alert("you win!")
+      }
+    }
+  })
 
 });
