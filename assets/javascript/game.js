@@ -15,17 +15,17 @@ $(document).ready(function() {
 
   // Creates Characters, places in an array, renders to DOM
 
-  var p1Ryu    = new Fighter("ryu", "assets/images/ryu.jpg", 100, 10, 10);
-  var p1ChunLi = new Fighter("chun-li", "assets/images/chun-li.jpg", 100, 10, 10);
-  var p1Guile  = new Fighter("guile", "assets/images/guile.jpg", 100, 10, 10);
-  var p1Ken    = new Fighter("ken", "assets/images/ken.jpg", 100, 10, 10);
+  var p1Ryu    = new Fighter("ryu", "assets/images/ryu.jpg", 120, 10, 10);
+  var p1ChunLi = new Fighter("chun-li", "assets/images/chun-li.jpg", 100, 15, 15);
+  var p1Guile  = new Fighter("guile", "assets/images/guile.jpg", 150, 7, 7);
+  var p1Ken    = new Fighter("ken", "assets/images/ken.jpg", 120, 10, 10);
 
   var fighterRoster = [p1Ryu, p1ChunLi, p1Guile, p1Ken];
 
   var newRoster=$()
 
   for(i = 0; i < fighterRoster.length; i++ ) {
-    var createRoster = $("<div id="+fighterRoster[i].name+" class='col-md-3'><img class= '.img-fluid' src=" + fighterRoster[i].image + " /><p>"+fighterRoster[i].vitality+"</p></div>" )
+    var createRoster = $("<div id="+fighterRoster[i].name+" class='col-md-3'><img class= '.img-fluid' src=" + fighterRoster[i].image + " /><p class='hitPoints'>HP "+fighterRoster[i].vitality+"</p></div>" )
     newRoster = newRoster.add(createRoster)
 
   }
@@ -191,11 +191,11 @@ $(document).ready(function() {
 
     function fight() {
       opponent.vitality = opponent.vitality - player1up.attack;
-      console.log("Opponent vitality: " + opponent.vitality);
       player1up.vitality = player1up.vitality - opponent.counter;
-      console.log("Player 1 vitality: " + player1up.vitality);
       player1up.attack = player1up.attack += 5;
-      console.log("Player 1 attack: " + player1up.attack);
+      $("div #" + player1up.name + " p").html("HP "+ player1up.vitality);
+      $("div #" + opponent.name + " p").html("HP "+ opponent.vitality);
+      $(".card-body").html(player1up.name + " dealt " + player1up.attack + " damage! "+opponent.name + " dealt " + opponent.attack + " damage!")
     }
 
     $("#fightButton").on("click", function() {
@@ -203,10 +203,11 @@ $(document).ready(function() {
       if(player1up.vitality <= 0){
         alert("Game Over!")
       }
-      else if(opponent.vitality <= 0) {
+      if(opponent.vitality <= 0) {
         alert(opponent.name + " is defeated!")
+        $("div #" + opponent.name).addClass("defeated");
         opponentHasPicked = false;
-        opponent = "";
+        opponent="";
         wins = wins + 1
         if(wins < 3) {
           alert(wins + " Choose next opponent!")
