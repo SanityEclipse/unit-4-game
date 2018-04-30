@@ -1,15 +1,17 @@
-function Fighter(name, image, vitality, attack, counter) {
-  this.name = name;
-  this.image = image;
-  this.vitality = vitality;
-  this.attack = attack;
-  this.counter = counter;
-}
-
 $(document).ready(function() {
+
+  function Fighter(name, image, vitality, attack, counter) {
+    this.name = name;
+    this.image = image;
+    this.vitality = vitality;
+    this.attack = attack;
+    this.counter = counter;
+  }
 
   var playerHasPicked   = false;
   var opponentHasPicked = false;
+  var player1up;
+  var opponent;
 
   // Creates Characters, places in an array, renders to DOM
 
@@ -85,6 +87,7 @@ $(document).ready(function() {
         bottom: "-=260"
       }, 100, function(){
       });
+      player1up = p1Ryu;
     }
     else if(playerHasPicked === true && opponentHasPicked === false) {
       opponentHasPicked = true;
@@ -94,8 +97,9 @@ $(document).ready(function() {
       .animate({
         right: "-=430"
       }, 100, function(){
-        gameLoop();
       });
+      opponent = p1Ryu;
+      gameLoop();
     }
   });
 
@@ -110,6 +114,7 @@ $(document).ready(function() {
         left: "-=141"
       }, 100, function(){
       });
+      player1up = p1ChunLi
     }
     else if(playerHasPicked === true && opponentHasPicked === false){
       opponentHasPicked = true;
@@ -119,8 +124,9 @@ $(document).ready(function() {
       .animate({
         right:"-=290"
       }, 100, function(){
-        gameLoop();
       });
+      opponent = p1ChunLi
+      gameLoop();
     }
   });
 
@@ -134,8 +140,8 @@ $(document).ready(function() {
       .animate({
         left: "-=285"
       }, 100, function(){
-        gameLoop();
       });
+      player1up = p1Guile;
     }
     else if(playerHasPicked === true && opponentHasPicked === false) {
       opponentHasPicked = true;
@@ -145,8 +151,10 @@ $(document).ready(function() {
       .animate({
         right:"-=140px"
       }, 100, function(){
-        gameLoop();
+
       });
+      opponent = p1Guile;
+      gameLoop();
     }
   });
 
@@ -161,19 +169,36 @@ $(document).ready(function() {
         left: "-=430"
       }, 100, function(){
       });
+      player1up = p1Ken;
     }
     else if(playerHasPicked === true && opponentHasPicked === false){
       opponentHasPicked = true;
       $("#roster .row .col-md-3 #ken").animate({
         bottom: "-=260"
       }, 100, function(){
-        gameLoop();
+
       });
+      opponent = p1Ken;
+      gameLoop();
     }
   });
 
   function gameLoop() {
     console.log("Game Loop initiated");
+    console.log(player1up)
+    console.log(opponent)
+
+    function fight() {
+      opponent.vitality = opponent.vitality - player1up.attack;
+      console.log("Opponent vitality: " + opponent.vitality);
+      player1up.vitality = player1up.vitality - opponent.counter;
+      console.log("Player 1 vitality: " + player1up.vitality);
+      player1up.attack = player1up.attack += 10;
+      console.log("Player 1 attack: " + player1up.attack); 
+    }
+
+    fight();
+
   }
 
 
