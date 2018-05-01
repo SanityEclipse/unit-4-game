@@ -7,6 +7,7 @@ $(document).ready(function() {
     this.attack = attack;
     this.counter = counter;
   }
+
   var wins = 0;
   var playerHasPicked   = false;
   var opponentHasPicked = false;
@@ -26,6 +27,7 @@ $(document).ready(function() {
 
   for(i = 0; i < fighterRoster.length; i++ ) {
     var createRoster = $("<div id="+fighterRoster[i].name+" class='col-md-3'><img class= '.img-fluid' src=" + fighterRoster[i].image + " /><p class='hitPoints'>HP "+fighterRoster[i].vitality+"</p></div>" )
+
     newRoster = newRoster.add(createRoster)
 
   }
@@ -185,7 +187,7 @@ $(document).ready(function() {
     player1up.attack = player1up.attack += 5;
     $("div #" + player1up.name + " p").html("HP "+ player1up.vitality);
     $("div #" + opponent.name + " p").html("HP "+ opponent.vitality);
-    $(".card-body").html(player1up.name + " dealt " + player1up.attack + " damage! "+opponent.name + " dealt " + opponent.attack + " damage!")
+    $(".card-body").html(player1up.name + " dealt " + player1up.attack + " damage! <br>"+opponent.name + " dealt " + opponent.attack + " damage!")
   }
 
   $("#fightButton").on("click", function() {

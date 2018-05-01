@@ -52,6 +52,19 @@ img {
 
 }
 
+.card {
+  background-color:orange;
+}
+
+.card-header {
+  color: red;
+  background-color: black;
+}
+
+.card-body {
+  font-size:12px;
+}
+
 .defeated {
   visibility: hidden;
 }
