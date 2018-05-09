@@ -21,12 +21,12 @@ $(document).ready(function() {
   var p1Guile  = new Fighter("guile", "assets/images/guile.jpg", 150, 7, 7);
   var p1Ken    = new Fighter("ken", "assets/images/ken.jpg", 120, 10, 10);
 
-  var fighterRoster = [p1Ryu, p1ChunLi, p1Guile, p1Ken];
+  var fighterRoster = [ p1Ryu, p1ChunLi, p1Guile, p1Ken ];
 
   var newRoster=$()
 
   for(i = 0; i < fighterRoster.length; i++ ) {
-    var createRoster = $("<div id="+fighterRoster[i].name+" class='col-md-3'><img class= '.img-fluid' src=" + fighterRoster[i].image + " /><p class='hitPoints'>HP "+fighterRoster[i].vitality+"</p></div>" )
+    var createRoster = $("<div id=" + fighterRoster[i].name + " class='col-md-3'><img class= '.img-fluid' src=" + fighterRoster[i].image + " /><p class='hitPoints'>HP " + fighterRoster[i].vitality + "</p></div>" )
 
     newRoster = newRoster.add(createRoster)
 
